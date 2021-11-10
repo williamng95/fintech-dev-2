@@ -1,0 +1,19 @@
+{
+  "name": "projectfolder",
+  "version": "1.0.0",
+  "description": "test project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/williamng95/fintech-dev-2.git"
+  },
+  "author": "william",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/williamng95/fintech-dev-2/issues"
+  },
+  "homepage": "https://github.com/williamng95/fintech-dev-2#readme"
+}
