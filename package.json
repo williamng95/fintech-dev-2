@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/williamng95/fintech-dev-2/issues"
   },
-  "homepage": "https://github.com/williamng95/fintech-dev-2#readme"
+  "homepage": "https://github.com/williamng95/fintech-dev-2#readme",
+  "dependencies": {
+    "pg": "^8.7.1"
+  }
 }
