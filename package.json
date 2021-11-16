@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/williamng95/fintech-dev-2#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
+    "express-session": "^1.17.2",
+    "passport": "^0.5.0",
+    "passport-auth0": "^1.4.1",
     "pg": "^8.7.1"
   }
 }
