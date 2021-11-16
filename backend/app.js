@@ -17,9 +17,9 @@ const auth_config = {
   authRequired: false,
   auth0Logout: true,
   secret: process.env.AUTHSECRET,
-  baseURL: 'http://localhost:3000',
-  clientID: 'obOUznVsGE3nYOEiiop5t0xt352zeZQm',
-  issuerBaseURL: 'https://dev-kj-18osw.us.auth0.com'
+  baseURL: process.env.BASEURL,
+  clientID: process.env.AUTHCLIENT,
+  issuerBaseURL: process.env.AUTHURL
 };
 
 var app = express();

@@ -2,4 +2,11 @@
 
 second commit
 
-backend with express, front end with React
+backend with express, 
+
+integration with auth0 for login
+
+api served at /api/
+
+
+front end with React
