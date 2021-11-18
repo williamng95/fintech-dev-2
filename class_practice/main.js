@@ -15,9 +15,10 @@ router.get('/convert/inch-to-cm', (req,res)=>{
     
 )
 
+server.use(express.json())
 server.use(router)
-server.use(userAPI.router)
-server.use(accountAPI.router)
+server.use('/user',userAPI.router)
+server.use('/accounts',accountAPI.router)
 
 
 server.listen(3000,(error)=>{
