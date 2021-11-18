@@ -7,19 +7,17 @@ const db = require('../db')
 
 // define the home page route
 router.get('/', function (req, res) {
-    res.send('api home page')
-  })  
-
-router.get('/users', async function(req, res, next) {
-    res.setHeader('Content-Type', 'application/json')
-    let qres=await db.query("select * from gb.user")
-    res.json(qres.rows)
-  })
-
-router.get('/transactions', async function(req, res, next) {
-res.setHeader('Content-Type', 'application/json')
-let qres=await db.query("select * from gb.transactions")
-res.json(qres.rows)
+  res.send('api home page')
 })
 
-module.exports=router
+router.get('/users', async function (req, res, next) {
+  let qres = await db.query("select * from gb.user")
+  res.json(qres.rows)
+})
+
+router.get('/transactions', async function (req, res, next) {
+  let qres = await db.query("select * from gb.transactions")
+  res.json(qres.rows)
+})
+
+module.exports = router
