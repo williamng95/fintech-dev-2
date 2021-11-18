@@ -16,3 +16,7 @@ function cmLength(inches){
 function isNullBlank(inputVal){
     return Boolean((inputVal===null || inputVal==""))
 }
+
+module.exports= {
+    cmLength:cmLength
+}
