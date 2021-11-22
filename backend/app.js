@@ -4,34 +4,34 @@ var createError = require('http-errors');
 var express = require('express');
 
 var apiRouter = require('./routes/api');
-
-const { auth } = require('express-openid-connect');
-const { requiresAuth } = require('express-openid-connect');
-
-const auth_config = {
-  authRequired: false,
-  auth0Logout: true,
-  secret: process.env.AUTHSECRET,
-  baseURL: process.env.BASEURL,
-  clientID: process.env.AUTHCLIENT,
-  issuerBaseURL: process.env.AUTHURL
-};
+var indexRouter = require('./routes/index');
 
 var app = express();
+var jwt = require('express-jwt');
+var jwks = require('jwks-rsa');
+
+var jwtCheck = jwt({
+  secret: jwks.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: process.env.AUTH0_API_URI
+  }),
+  audience: process.env.AUTH0_API_AUDIENCE,
+  issuer: process.env.AUTH0_DOMAIN,
+  algorithms: [process.env.AUTH0_ALGO]
+});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(auth(auth_config));
+app.use(jwtCheck);
 
-app.get('/', (req, res) => {
-  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
-});
-
-app.use('/api', requiresAuth(), apiRouter);
+app.use('/api', apiRouter);
+// app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404));
+  res.status(404).send("not found");
 });
 
 // error handler
@@ -42,7 +42,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send(err.message);
 });
 
 module.exports = app;

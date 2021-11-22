@@ -1,6 +1,7 @@
 import logo from './assets/logo.svg';
 import './assets/App.css';
 import NavBar from './components/NavBar';
+import {Posts} from './components/authAPI'
 
 function App() {
   return (
@@ -21,7 +22,11 @@ function App() {
           Learn React
         </a>
       </header>
+      <body>
+        <Posts />
+    </body>
     </div>
+
   );
 }
 
