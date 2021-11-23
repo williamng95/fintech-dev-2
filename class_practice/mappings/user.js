@@ -1,10 +1,9 @@
 const express = require('express')
-const database = require('../data')
+const {query_boilerplate} = require("../database");
 let router = express.Router();
 
 router.get("/all", (req, res) => {
-    let users = database.get_all_users()
-    res.status(200).send(users)
+    query_boilerplate('select * from user',res.status(200).send.bind(res));
 })
 router.get("/by-id", (req, res) => {
     let user = database.get_user_by_user_id(req.query.user_id)

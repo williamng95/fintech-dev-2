@@ -15,8 +15,7 @@ const cors = require('cors');
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
-app.use(cors({
-  origin: '*'}))
+app.options('*', cors())
 
 /**
  * Create HTTP server.

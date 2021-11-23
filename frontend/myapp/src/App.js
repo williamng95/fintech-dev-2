@@ -22,10 +22,9 @@ function App() {
           Learn React
         </a>
       </header>
-      <body>
-        <Posts />
-    </body>
+      <Posts />
     </div>
+
 
   );
 }
