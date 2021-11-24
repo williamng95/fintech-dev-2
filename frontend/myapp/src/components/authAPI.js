@@ -14,12 +14,11 @@ export const Posts = () => {
           const response = await fetch(process.env.REACT_APP_APIAUDIENCE+'/users', {
             headers: {
               Authorization: `Bearer ${token}`,
-            },'Access-Control-Request-Method': 'GET',
-            'Access-Control-Request-Headers': "Content-Type, Accept",
+            },'Access-Control-Allow-Origin': process.env.REACT_APP_BASEURL,
             method: 'GET',
           });
           setPosts(await response.json());
-          console.log(response)
+          // console.log(posts.map(item=>`${item.email}`))
         } catch (e) {
           console.error(e);
         }
@@ -27,7 +26,10 @@ export const Posts = () => {
     }, [getAccessTokenSilently])
     return (
         <div>
-            {posts}
+            <ul>
+              {posts&&posts.map(item=>(<li>{item.email}</li>))}
+            </ul>
+            
         </div>
     )
 };
