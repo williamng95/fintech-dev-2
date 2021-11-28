@@ -5,12 +5,12 @@ const ProductDisplay = () => (
   <section>
     <div className="product">
       <img
-        src="https://i.imgur.com/EHyR2nP.png"
+        src="https://stripe-camo.global.ssl.fastly.net/c7fb7c85465460c3cd051fac2e5d709663511f61918aeccae2b6588b7ee9e0ed/68747470733a2f2f66696c65732e7374726970652e636f6d2f6c696e6b732f4d44423859574e6a64463878537a4277534464486557744e574464425a6a6c3166475a735833526c633352666357466f576e46616146565056466f3157556859616b5670656d646d5a477377303041455a4b38706169"
         alt="The cover of Stubborn Attachments"
       />
       <div className="description">
-      <h3>Stubborn Attachments</h3>
-      <h5>$20.00</h5>
+      <h3>Sunglasses</h3>
+      <h5>$190.00</h5>
       </div>
     </div>
     <form action="/create-checkout-session" method="POST">

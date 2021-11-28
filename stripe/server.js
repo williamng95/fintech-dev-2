@@ -10,16 +10,24 @@ app.post('/create-checkout-session', async (req, res) => {
     line_items: [
       {
         // Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
-        price: 'price_1K0pZ4GykMX7Af9umrCBn3C1',
+        price: 'price_1K0qNAGykMX7Af9unzlVpwr3',
         quantity: 1,
       },
     ],
     mode: 'payment',
-    success_url: `${YOUR_DOMAIN}/success.html`,
-    cancel_url: `${YOUR_DOMAIN}/cancel.html`,
+    success_url: `${YOUR_DOMAIN}/success`,
+    cancel_url: `${YOUR_DOMAIN}/cancel`,
   });
 
   res.redirect(303, session.url);
 });
+
+app.get('/success', (req,res)=>{
+  res.status(200).send(`
+  <body>
+  <h1>purchase success</h1>
+  </body>
+  `)
+})
 
 app.listen(4242, () => console.log('Running on port 4242'));
